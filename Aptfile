@@ -1,1 +1,0 @@
-heroku create --buildpack https://github.com/socialpaymentsbv/heroku-buildpack-nmap.git
