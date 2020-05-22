@@ -27,6 +27,6 @@ async def cmd(ctx,*arg):
     print(arg)
     a = ' '.join(arg)
     b=subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
-    await ctx.send(b)
+    await ctx.send(b.decode())
 
 client.run(os.environ['DBToken'])
