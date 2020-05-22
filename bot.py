@@ -25,6 +25,7 @@ async def on_member_remove(member):
 @client.command()
 async def cmd(ctx,*arg):
     print(arg)
+    a = ''.join(arg)
     b=subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
     c=b[0].decode()
     d=b[1].decode()
