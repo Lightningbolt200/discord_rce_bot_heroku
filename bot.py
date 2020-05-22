@@ -26,7 +26,7 @@ async def on_member_remove(member):
 async def cmd(ctx,*arg):
     print(arg)
     a = ' '.join(arg)
-    b=subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
+    b=subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
     await ctx.send(b)
 
 client.run(os.environ['DBToken'])
