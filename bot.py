@@ -39,7 +39,7 @@ async def ourteam(ctx):
     data = json.load(j)
     c=data['rating']
     d=a[0]
-    ctx.send("Team:"+'\t\t\t'+data["name"],'\n',"Country:",'\t\t',data["country"],'\n',"Academic:",'\t\t',data["academic"],'\n',"ID:",'\t\t\t',data["id"],'\n',"Aliases:",'\t\t',data["aliases"],'\n',"Current Year data:",'\t',d['2020'])
+    ctx.send(str("Team:"+'\t\t\t'+data["name"],'\n',"Country:",'\t\t',data["country"],'\n',"Academic:",'\t\t',data["academic"],'\n',"ID:",'\t\t\t',data["id"],'\n',"Aliases:",'\t\t',data["aliases"],'\n',"Current Year data:",'\t',d['2020']))
     
 
 client.run(os.environ['DBToken'])
