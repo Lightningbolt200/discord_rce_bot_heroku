@@ -31,4 +31,15 @@ async def cmd(ctx,*arg):
     d=b[1].decode()
     await ctx.send(c+d)
 
+@client.command()
+async def ourteam(ctx):
+    a='curl "https://ctftime.org/api/v1/teams/87448/" | cat > down.json'
+    b=subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
+    j = open("down.json","r")
+    data = json.load(j)
+    a=data['rating']
+    b=a[0]
+    print("Team:",'\t\t\t',data["name"],'\n',"Country:",'\t\t',data["country"],'\n',"Academic:",'\t\t',data["academic"],'\n',"ID:",'\t\t\t',data["id"],'\n',"Aliases:",'\t\t',data["aliases"],'\n',"Current Year data:",'\t',b['2020'])
+    
+
 client.run(os.environ['DBToken'])
