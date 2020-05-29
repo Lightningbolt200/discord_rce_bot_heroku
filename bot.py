@@ -37,6 +37,7 @@ async def ourteam(ctx):
     b=subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
     j = open("/app/down.json","r")
     data = json.load(j)
+    print(data)
     c=data['rating']
     d=a[0]
     ctx.send(str("Team:"+'\t\t\t'+data["name"],'\n',"Country:",'\t\t',data["country"],'\n',"Academic:",'\t\t',data["academic"],'\n',"ID:",'\t\t\t',data["id"],'\n',"Aliases:",'\t\t',data["aliases"],'\n',"Current Year data:",'\t',d['2020']))
