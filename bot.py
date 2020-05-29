@@ -39,6 +39,6 @@ async def ourteam(ctx):
     data = json.load(j)
     c=data['rating']
     d=a[0]
-    await ctx.send(data['name'])
+    await ctx.send("Name:"+data['name']+"\n"+"Country:"+data['country'])
 
 client.run(os.environ['DBToken'])
