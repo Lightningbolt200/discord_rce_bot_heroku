@@ -45,13 +45,14 @@ async def ourteam(ctx):
         d=d+','
     h=(d[:-1])
     e="Team:"+'\t\t\t'+data["name"]+'\n'+"Country:"+'\t\t'+data["country"]+'\n'+"Academic:"+'\t\t'+str(data["academic"])+'\n'+"ID:"+'\t\t\t'+str(data["id"])+"\nAliases:\t\t"+str(h)   
-    g=[1,2,3]
     i=""
+    l=0
+    k=[]
+    for x in e:
+        for y in x.keys():
+            k.append(y)
     for x in a:
         for y in x.values():
-            g[0]=y['organizer_points']
-            g[1]=y['rating_points']
-            g[2]=y['rating_place']
-            i=i+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place'])
+            i=i+"\n"+str(k[l])+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place'])
     await ctx.send(e+i)            
 client.run(os.environ['DBToken'])
