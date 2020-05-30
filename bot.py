@@ -45,7 +45,7 @@ async def ourteam(ctx):
         d=d+','
     h=(d[:-1])
     await ctx.send("\nTeam:"+data['name'])
- """   
+"""   
     g=[1,2,3]
     for x in a:
         for y in x.values():
