@@ -37,6 +37,8 @@ async def ourteam(ctx):
     b=subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
     j = open("/app/down.json","r")
     data = json.load(j)
+    await ctx.send(data)
+    """
     a=data['rating']
     b=a[0]
     for x in c:
@@ -44,7 +46,6 @@ async def ourteam(ctx):
         d=d+','
         h=(d[:-1])
     await ctx.send("\n"+"Name:"+data['name']+"\n"+"Country:"+data['country'])
-"""
     for x in e:
         for y in x.values():
             g[0]=y['organizer_points']
