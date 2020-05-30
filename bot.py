@@ -45,11 +45,4 @@ async def ourteam(ctx):
     h=(d[:-1])
 
     await ctx.send("\nName:\t\t\t"+data['name']+"\nCountry:\t\t\t"+data['country']+"\nID:\t\t\t"+str(data['id'])+"\nAcademic:\t\t"+str(data['academic'])+"\nAliases:\t\t"+h)
-    for x in e:
-    for y in x.values():
-        g[0]=y['organizer_points']
-        g[1]=y['rating_points']
-        g[2]=y['rating_place']
-        await ctx.send("\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place']))
-    
 client.run(os.environ['DBToken'])
