@@ -54,5 +54,8 @@ async def ourteam(ctx):
     for x in a:
         for y in x.values():
             i=i+"\n"+str(k[l])+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place'])
-    await ctx.send(e+i)            
+            l=l+1
+    await ctx.send(e+i)
+    
+    
 client.run(os.environ['DBToken'])
