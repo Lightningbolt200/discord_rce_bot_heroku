@@ -33,8 +33,8 @@ async def cmd(ctx,*arg):
 
 @client.command()
 async def ourteam(ctx):
-    a='curl "https://ctftime.org/api/v1/teams/87448/" | cat > down.json'
-    b=subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
+    x='curl "https://ctftime.org/api/v1/teams/87448/" | cat > down.json'
+    y=subprocess.Popen(x, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
     j = open("/app/down.json","r")
     data = json.load(j)
     a=data['rating']
