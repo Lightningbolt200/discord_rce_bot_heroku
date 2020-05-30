@@ -44,14 +44,12 @@ async def ourteam(ctx):
         d=d+x
         d=d+','
     h=(d[:-1])
-    await ctx.send("Team:"+'\t\t\t'+data["name"]+'\n'+"Country:"+'\t\t'+data["country"]+'\n'+"Academic:"+'\t\t'+str(data["academic"])+'\n'+"ID:"+'\t\t\t'+str(data["id"])+"\nAliases:\t\t"+str(h))
-"""   
+    e="Team:"+'\t\t\t'+data["name"]+'\n'+"Country:"+'\t\t'+data["country"]+'\n'+"Academic:"+'\t\t'+str(data["academic"])+'\n'+"ID:"+'\t\t\t'+str(data["id"])+"\nAliases:\t\t"+str(h)   
     g=[1,2,3]
     for x in a:
         for y in x.values():
             g[0]=y['organizer_points']
             g[1]=y['rating_points']
             g[2]=y['rating_place']
-            await ctx.send("\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place']))
-"""
+            await ctx.send(e+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place']))
 client.run(os.environ['DBToken'])
