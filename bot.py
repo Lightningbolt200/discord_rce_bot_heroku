@@ -48,7 +48,7 @@ async def ourteam(ctx):
     i=""
     l=0
     k=[]
-    for x in e:
+    for x in a:
         for y in x.keys():
             k.append(y)
     for x in a:
