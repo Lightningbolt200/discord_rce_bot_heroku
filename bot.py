@@ -53,7 +53,7 @@ async def ourteam(ctx):
             k.append(y)
     for x in a:
         for y in x.values():
-            i=i+"\nYear:\t\t"+str(k[l])+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place'])
+            i=i+"\n\n\nYear:\t\t"+str(k[l])+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place'])
             l=l+1
     await ctx.send(e+i)
     
