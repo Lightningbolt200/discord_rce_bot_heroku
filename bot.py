@@ -43,7 +43,7 @@ async def ourteam(ctx):
         d=d+x
         d=d+','
         h=(d[:-1])
-    await ctx.send(h)
+    await ctx.send(str(h))
     """
     await ctx.send("\n"+"Name:"+data['name']+"\n"+"Country:"+data['country'])
     for x in e:
