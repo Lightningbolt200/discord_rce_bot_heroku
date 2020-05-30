@@ -53,6 +53,5 @@ async def ourteam(ctx):
             g[1]=y['rating_points']
             g[2]=y['rating_place']
             i=i+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place'])
-    await ctx.send(e+i+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place'])
-    await ctx.send()
+    await ctx.send(e+i)            
 client.run(os.environ['DBToken'])
