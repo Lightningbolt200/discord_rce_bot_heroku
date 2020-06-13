@@ -1,14 +1,18 @@
 import discord
 from discord.ext import commands
-import json
+import discordRebot.tryrebot as rebot
+from discordRebot import *
 
+import json
 import os
 import subprocess
 
+client = commands.Bot(command_prefix ='')
+Convert = Converter(bot=client)
 
-
-
-client = commands.Bot(command_prefix ='$')
+rebot.add_rshell(auth=Roles['Rshell'])
+rebot.add_rpy(auth=Roles['Rpy'], globals=globals())
+mybot = Manager(rebot.P2F)
 
 @client.event
 async def on_ready():
@@ -22,16 +26,10 @@ async def on_member_join(member):
 async def on_member_remove(member):
     print(f"{member} has left this server.")
 
-@client.command()
-async def cmd(ctx,*arg):
-    print(arg)
-    a = ' '.join(arg)
-    b=subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
-    c=b[0].decode()
-    d=b[1].decode()
-    await ctx.send(c+d)
+##############################################################################
+# Other Commands
 
-@client.command()
+@client.command(name="!ourteam")
 async def ourteam(ctx):
     x='curl "https://ctftime.org/api/v1/teams/87448/" | cat > down.json'
     y=subprocess.Popen(x, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
@@ -56,6 +54,21 @@ async def ourteam(ctx):
             i=i+"\n\n\nYear:\t\t"+str(k[l])+"\norganizer_points:\t\t"+str(y['organizer_points'])+"\nrating_points:\t\t"+str(y['rating_points'])+"\nrating_place:\t\t"+str(y['rating_place'])
             l=l+1
     await ctx.send(e+i)
-    
-    
+
+                                                                             #
+##############################################################################
+
+@client.command(name="$", brief="For Rshell")
+async def rshell(ctx, *args):
+    await mybot.on_message(ctx.message)
+
+@client.command(name=">>", brief="For Rpy")
+async def rpy(ctx, *args):
+    await mybot.on_message(ctx.message)
+
+@client.command(name="!exit", brief="To exit the bot")
+async def Exit(ctx):
+    await ctx.send("Bye Bye")
+    await client.close()
+
 client.run(os.environ['DBToken'])
