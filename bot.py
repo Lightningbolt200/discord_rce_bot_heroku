@@ -6,6 +6,7 @@ from discordRebot import *
 import json
 import os
 import subprocess
+import pycurl_requests as curlreqs
 
 client = commands.Bot(command_prefix ='')
 Convert = Converter(bot=client)
@@ -34,10 +35,9 @@ async def on_member_remove(member):
 
 @client.command(name="!ourteam")
 async def ourteam(ctx):
-    x='curl "https://ctftime.org/api/v1/teams/87448/" | cat > down.json'
-    y=subprocess.Popen(x, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True).communicate()
-    j = open("/app/down.json","r")
-    data = json.load(j)
+    x = 'https://ctftime.org/api/v1/teams/87448/'
+    r = curlreqs.get(x)
+    data = json.loads(r.content)
     a=data['rating']
     c=data['aliases']
     d=""
