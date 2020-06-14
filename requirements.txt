@@ -1,3 +1,4 @@
 discord.py
 discord-rebot
 nest-asyncio
+pycurl-requests
