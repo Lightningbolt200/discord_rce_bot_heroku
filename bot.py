@@ -10,8 +10,11 @@ import subprocess
 client = commands.Bot(command_prefix ='')
 Convert = Converter(bot=client)
 
-rebot.add_rshell(auth=Roles['Rshell'])
-rebot.add_rpy(auth=Roles['Rpy'], globals=globals())
+from bot.discordRebot_anywhere import Anywhere
+Anywhere.bot = client
+
+rebot.add_rshell(auth=Anywhere(Roles['Rshell']))
+rebot.add_rpy(auth=Anywhere(Roles['Rpy']), globals=globals())
 mybot = Manager(rebot.P2F)
 
 @client.event
