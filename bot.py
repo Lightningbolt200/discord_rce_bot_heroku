@@ -10,7 +10,7 @@ import subprocess
 client = commands.Bot(command_prefix ='')
 Convert = Converter(bot=client)
 
-from bot.discordRebot_anywhere import Anywhere
+from discordRebot_anywhere import Anywhere
 Anywhere.bot = client
 
 rebot.add_rshell(auth=Anywhere(Roles['Rshell']))
