@@ -62,12 +62,16 @@ async def ourteam(ctx):
 ##############################################################################
 
 @client.command(name="$", brief="For Rshell")
-async def rshell(ctx, *args):
-    await mybot.on_message(ctx.message)
+async def rshell(ctx_, *args):
+    global ctx
+    ctx = ctx_
+    await mybot.on_message(ctx_.message)
 
 @client.command(name=">>", brief="For Rpy")
-async def rpy(ctx, *args):
-    await mybot.on_message(ctx.message)
+async def rpy(ctx_, *args):
+    global ctx
+    ctx = ctx_
+    await mybot.on_message(ctx_.message)
 
 @client.command(name="!exit", brief="To exit the bot")
 async def Exit(ctx):
