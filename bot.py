@@ -5,10 +5,17 @@ from discordRebot import *
 
 import json
 import os
+import inspect
 import subprocess
-import pycurl_requests as curlreqs
+import asyncio
 
 client = commands.Bot(command_prefix ='')
+client.remove_command('help')
+
+@client.command(name="!help", brief="Shows this message")
+async def Help(ctx, *, command):
+    await client.send_help(command)
+
 Convert = Converter(bot=client)
 
 from discordRebot_anywhere import Anywhere
@@ -17,6 +24,9 @@ Anywhere.bot = client
 rebot.add_rshell(auth=Anywhere(Roles['Rshell']))
 rebot.add_rpy(auth=Anywhere(Roles['Rpy']), globals=globals())
 mybot = Manager(rebot.P2F)
+
+##############################################################################
+# Other Commands and Events
 
 @client.event
 async def on_ready():
@@ -30,8 +40,8 @@ async def on_member_join(member):
 async def on_member_remove(member):
     print(f"{member} has left this server.")
 
-##############################################################################
-# Other Commands
+
+import pycurl_requests as curlreqs
 
 @client.command(name="!ourteam")
 async def ourteam(ctx):
