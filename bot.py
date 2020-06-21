@@ -13,8 +13,12 @@ client = commands.Bot(command_prefix ='')
 client.remove_command('help')
 
 @client.command(name="!help", brief="Shows this message")
-async def Help(ctx, *, command):
-    await client.send_help(command)
+async def Help(ctx, *, command=None):
+    """ Shows this message """
+    if command is None:
+        await ctx.send_help()
+    else:
+        await ctx.send_help(command)
 
 Convert = Converter(bot=client)
 
